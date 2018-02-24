@@ -1,0 +1,64 @@
+<! DOCTYPE HTML>
+
+
+<html>
+
+ <head>
+ <style>
+	.error{
+		background: #ecc;
+		border:1px solid #933;
+		padding:0.5em;
+	}
+	.error label{
+		font-weight: bold;
+		color: #933;
+	}
+	.msg {
+		font-weight:bold;
+	}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	var $form = $("#exercise-form");
+	let token = true;
+	$form.find(".field:nth-child(1)").addClass('error');
+	$form.find(".field:nth-child(2)").find("label").append("(required)");
+	$form.find(".field:nth-child(3)").on("input",
+			function(){
+				if(token){
+					$(this).append("<p>Good Choice!</p>").find("p").addClass("msg");
+					token=false;
+				}
+				else if($(this).find("input").val().length==0){
+					token = true;
+				}
+				
+			});
+});
+
+</script>
+
+</head> 
+<body>
+<form id="exercise-form">
+	
+	<div class="field">
+	<label>Name: </label>
+	<input type="text" name="name"/>
+	</div>
+	
+	<div class="field">
+	<label>Phone: </label>
+	<input type="text" name="phone"/>
+	</div>
+	
+	<div class="field">
+	<label>Favorite Color: </label>
+	<input type="text" name="color"/>
+	</div>
+	
+</form>
+</body>
+</html>

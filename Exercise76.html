@@ -1,0 +1,39 @@
+<! DOCTYPE HTML>
+
+
+<html>
+
+ <head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+var enlarge = function(){
+
+	$("img").animate({
+				'width':'10%',
+				'opacity':0.5
+			},2000,"swing",shrink);
+			
+};
+
+var shrink = function(){
+	$("img").animate({
+				'width':'50%',
+				'opacity':1
+			},2000,"swing",enlarge);
+};
+
+$(document).ready(function(){
+	$("#animate").on("click",enlarge);
+});
+
+
+</script>
+</head> 
+<h1></h1>
+<img src="https://www.birdsoutsidemywindow.org/wp-content/uploads/2013/09/events_giant_rubber_duck_florentijnhofman.jpg" />
+<br/>
+<button id="animate">Animate</button>
+<body>
+
+</body>
+</html>
